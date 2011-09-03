@@ -10,23 +10,5 @@ PageStackWindow {
         id: mainPage
     }
 
-    ToolBarLayout {
-        id: commonTools
-        visible: true
-
-        ToolIcon {
-            id: currentLocation
-            platformIconId: "icon-m-toolbar-refresh3"
-        }
-
-        ToolIcon {
-            platformIconId: "icon-m-toolbar-previous"
-        }
-
-        ToolIcon {
-            platformIconId: "icon-m-toolbar-next"
-        }
-
-    }
 
 }
