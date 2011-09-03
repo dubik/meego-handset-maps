@@ -1,22 +1,47 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import QtMobility.location 1.2
 
 Page {
     tools: commonTools
 
-    Rectangle {
-        id: r
-        width: 200
-        height: 200
-        color: "blue"
-    }
-
-    PinchArea {
+    Map {
+        id: map
+        plugin : Plugin {name : "nokia"}
         anchors.fill: parent
-        focus: true
-        pinch.target: r
-        pinch.minimumScale: 1.0
-        pinch.maximumScale: 2.0
-        onPinchStarted: console.log("Started")
+        size.width: parent.width
+        size.height: parent.height
+        zoomLevel: 10
+
+        MapMouseArea {
+            property int lastX : -1
+            property int lastY : -1
+
+            onPressed : {
+                lastX = mouse.x
+                lastY = mouse.y
+            }
+            onReleased : {
+                lastX = -1
+                lastY = -1
+            }
+            onPositionChanged: {
+                if (mouse.button == Qt.LeftButton) {
+                    if ((lastX != -1) && (lastY != -1)) {
+                        var dx = mouse.x - lastX
+                        var dy = mouse.y - lastY
+                        map.pan(-dx, -dy)
+                    }
+                    lastX = mouse.x
+                    lastY = mouse.y
+                }
+            }
+            onDoubleClicked: {
+                map.center = mouse.coordinate
+                map.zoomLevel += 1
+                lastX = -1
+                lastY = -1
+            }
+        }
     }
 }
