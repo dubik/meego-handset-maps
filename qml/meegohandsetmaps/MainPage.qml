@@ -4,20 +4,19 @@ import com.nokia.meego 1.0
 Page {
     tools: commonTools
 
-    Label {
-        id: label
-        anchors.centerIn: parent
-        text: qsTr("Hello world!")
-        visible: false
+    Rectangle {
+        id: r
+        width: 200
+        height: 200
+        color: "blue"
     }
 
-    Button{
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            top: label.bottom
-            topMargin: 10
-        }
-        text: qsTr("Click here!")
-        onClicked: label.visible = true
+    PinchArea {
+        anchors.fill: parent
+        focus: true
+        pinch.target: r
+        pinch.minimumScale: 1.0
+        pinch.maximumScale: 2.0
+        onPinchStarted: console.log("Started")
     }
 }
