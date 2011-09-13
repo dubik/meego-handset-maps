@@ -11,20 +11,20 @@ Page {
 
         ToolIcon {
             id: currentLocation
-            platformIconId: "icon-m-toolbar-refresh3"
+            iconSource: "icon-m-current-position.svg"
         }
 
         ToolIcon {
-            platformIconId: "icon-m-toolbar-previous"
+            iconSource: "icon-m-zoom-out.svg"
             onClicked: {
-                map.zoomLevel += 1
+                map.zoomLevel -= 1
             }
         }
 
         ToolIcon {
-            platformIconId: "icon-m-toolbar-next"
+            iconSource: "icon-m-zoom-in.svg"
             onClicked: {
-                map.zoomLevel -= 1
+                map.zoomLevel += 1
             }
         }
 

@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
 
     QmlApplicationViewer viewer;
     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
+    viewer.setWindowTitle("Maps");
     viewer.setMainQmlFile(QLatin1String("qml/meegohandsetmaps/main.qml"));
     viewer.showExpanded();
 
