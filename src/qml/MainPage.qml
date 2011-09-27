@@ -11,18 +11,18 @@ Page {
 
         ToolIcon {
             id: currentLocation
-            iconSource: "icon-m-current-position.svg"
+            iconSource: "qrc:/data/icon-m-current-position.svg"
         }
 
         ToolIcon {
-            iconSource: "icon-m-zoom-out.svg"
+            iconSource: "qrc:/data/icon-m-zoom-out.svg"
             onClicked: {
                 map.zoomLevel -= 1
             }
         }
 
         ToolIcon {
-            iconSource: "icon-m-zoom-in.svg"
+            iconSource: "qrc:/data/icon-m-zoom-in.svg"
             onClicked: {
                 map.zoomLevel += 1
             }

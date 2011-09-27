@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>qml/MainPage.qml</file>
+        <file>data/icon-m-zoom-in.svg</file>
+        <file>data/icon-m-zoom-out.svg</file>
+        <file>data/icon-m-current-position.svg</file>
     </qresource>
 </RCC>
