@@ -38,7 +38,15 @@ Page {
         size.width: parent.width
         size.height: parent.height
         zoomLevel: 10
-        center: Coordinate { latitude: 60.169589; longitude: 24.941318}
+        center: Coordinate { latitude: 60.169589; longitude: 24.941318} //TODO - cache last position?
+
+        PositionSource {
+            id: positionSource
+            updateInterval: 1000
+            active: true
+            onPositionChanged: map.center = positionSource.position.coordinate;
+            //TODO - we need code to handle accuracy and situations withouth GPS
+        }
 
         MapMouseArea {
             id: mouseArea
