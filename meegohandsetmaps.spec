@@ -20,14 +20,15 @@ make
 
 %install
 rm -rf %{buildroot}
-
+mkdir -p %{buildroot}/usr/bin/
+install -m 755 bin/meegohandsetmaps %{buildroot}/usr/bin/
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_datadir}/themes/darko/*
+/usr/bin/meegohandsetmaps
 
 %changelog
 * Tue Sep 27 2011 Jakub Pavelek <jpavelek@live.com> 0.1

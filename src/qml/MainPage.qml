@@ -38,6 +38,7 @@ Page {
         size.width: parent.width
         size.height: parent.height
         zoomLevel: 10
+        center: Coordinate { latitude: 60.169589; longitude: 24.941318}
 
         MapMouseArea {
             id: mouseArea
