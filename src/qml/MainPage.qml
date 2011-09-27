@@ -28,6 +28,18 @@ Page {
             }
         }
 
+        ToolIcon {
+            id: menuButton
+            iconId: "toolbar-view-menu"
+            onClicked: (mapsMenu.status == DialogStatus.Closed) ? mapsMenu.open() : mapsMenu.close()
+        }
+    }
+
+    Menu {
+        id: mapsMenu
+        MenuLayout {
+            MenuItem { text: "Exit"; onClicked: Qt.quit() }
+        }
     }
 
 
