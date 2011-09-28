@@ -4,6 +4,8 @@ import QtMobility.location 1.2
 
 Page {
     tools: commonTools
+    property bool following : true
+    property bool haveLocation: false
 
     ToolBarLayout {
         id: commonTools
@@ -12,6 +14,12 @@ Page {
         ToolIcon {
             id: currentLocation
             iconSource: "qrc:/data/icon-m-current-position.svg"
+            onClicked: {
+                if (haveLocation) {
+                    following = true;
+                    map.center = positionSource.position.coordinate;
+                }
+            }
         }
 
         ToolIcon {
@@ -56,7 +64,19 @@ Page {
             id: positionSource
             updateInterval: 1000
             active: true
-            onPositionChanged: map.center = positionSource.position.coordinate;
+            onPositionChanged: {
+                if (following) {
+                    if (positionSource.position.latitudeValid) {
+                        map.center = positionSource.position.coordinate;
+                        haveLocation = true
+                        print("Got location")
+                    } else {
+                        haveLocation = false
+                        print("No location")
+                        //TODO - set a dimmed current location icon
+                    }
+                }
+            }
             //TODO - we need code to handle accuracy and situations withouth GPS
         }
 
@@ -83,6 +103,7 @@ Page {
                     }
                     lastX = mouse.x
                     lastY = mouse.y
+                    following = false
                 }
             }
 
@@ -91,7 +112,9 @@ Page {
                 map.zoomLevel += 1
                 lastX = -1
                 lastY = -1
+                following = false
             }
         }
+        Component.onCompleted:positionSource.start()
     }
 }
