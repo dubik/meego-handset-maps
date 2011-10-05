@@ -20,7 +20,7 @@ CONFIG += mobility
 MOBILITY += location
 QT+= declarative
 TEMPLATE = app
-TARGET = meegohandsetmaps
+TARGET = meego-handset-maps
 DESTDIR = bin
 
 include(src/src.pri)
