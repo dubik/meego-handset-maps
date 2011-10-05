@@ -1,11 +1,11 @@
 Name:           meego-handset-maps
-Version:        0.1
+Version:        0.1.1
 Release:        1%{?dist}
 Summary:        Simple and fast maps application for MeeGo Handset. Needs data connection!
 Group:          User Interface/Desktops
 License:        GPL v2
 URL:            https://github.com/dubik/meego-handset-maps
-Source0:        file://meego-handset-maps-0.1.tgz
+Source0:        file://meego-handset-maps-0.1.1.tgz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:  qt-devel
 
@@ -24,7 +24,7 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/bin/
 install -m 755 bin/meegohandsetmaps %{buildroot}/usr/bin/
 mkdir -p %{buildroot}/usr/share/applications/
-install -m 644 meego-handset-maps.desktop %{buildroot}/usr/share/applications/
+install -m 644 src/data/meego-handset-maps.desktop %{buildroot}/usr/share/applications/
 
 %clean
 rm -rf %{buildroot}
