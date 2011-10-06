@@ -9,7 +9,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     view->setSource(QUrl("qrc:/qml/main.qml"));
 
 #ifdef __arm__
-    window.showFullScreen();
+    view->showFullScreen();
 #else
     view->show();
 #endif
