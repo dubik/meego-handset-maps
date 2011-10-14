@@ -17,6 +17,7 @@ symbian:TARGET.CAPABILITY += NetworkServices
 # lines and add the respective components to the MOBILITY variable.
 
 CONFIG += mobility
+CONFIG += qdeclarative-boostable
 MOBILITY += location
 QT+= declarative
 TEMPLATE = app
