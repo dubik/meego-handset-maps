@@ -4,5 +4,5 @@ Version=1.0
 Type=Application
 Terminal=false
 Name=Maps
-Exec=/usr/bin/meego-handset-maps
+Exec=/usr/bin/invoker --single-instance -r 5 --type=d /usr/bin/meego-handset-maps
 Icon=icon-l-maps
